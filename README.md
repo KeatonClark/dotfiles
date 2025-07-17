@@ -1,5 +1,18 @@
 Personal nix dotfiles containing system configuration, editor, etc...
 
+# NixOS Configurations
+## Hardtack (wsl)
+### Usage
+```sh
+# Installation
+nixos-rebuild switch --flake github:KeatonClark/dotfiles#hardtack
+```
+### Features
+- tmux config
+- mariner (neovim)
+- ollama service with nvidia pass through
+- zsh config
+
 # Packages
 ## Mariner (neovim)
 ### Usage
