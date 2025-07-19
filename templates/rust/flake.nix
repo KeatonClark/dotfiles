@@ -6,26 +6,27 @@
   };
   outputs = { self, nixpkgs, utils, ... }: utils.lib.eachDefaultSystem (system:
   let
+    pname = "template";
+    version = "0.1.0";
     pkgs = import nixpkgs {
       inherit system;
     };
-  in {
-    devShell = let
-      targetNames = {
-        mingw = "x86_64-w64-mingw32";
-        musl = "x86_64-unknown-linux-musl";
-      };
+    targetNames = {
+      mingw = "x86_64-w64-mingw32";
+      musl = "x86_64-unknown-linux-musl";
+    };
 
-      pkgsCross = builtins.mapAttrs (name: value: import pkgs.path {
-        system = system;
-        crossSystem = {
-          config = value;
-        };
-      }) targetNames;
-      
-      ccPkgs = builtins.mapAttrs (name: value: value.stdenv.cc) pkgsCross;
-      cc = builtins.mapAttrs (name: value: "${value}/bin/${targetNames.${name}}-cc") ccPkgs;
-    in pkgs.mkShell {
+    pkgsCross = builtins.mapAttrs (name: value: import pkgs.path {
+      system = system;
+      crossSystem = {
+        config = value;
+      };
+    }) targetNames;
+    
+    ccPkgs = builtins.mapAttrs (name: value: value.stdenv.cc) pkgsCross;
+    cc = builtins.mapAttrs (name: value: "${value}/bin/${targetNames.${name}}-cc") ccPkgs;
+  in {
+    devShell = pkgs.mkShell {
       buildInputs = with pkgs; [
         rustup
         gdb
@@ -57,7 +58,30 @@
         echo cargo build --target x86_64-pc-windows-gnu
         echo cargo build --target x86_64-unknown-linux-musl
       '';
-
     };  
+    packages = {
+      musl = pkgsCross.musl.rustPlatform.buildRustPackage {
+        pname = pname;
+        version = version;
+        src = ./.;
+        cargoLock = {
+          lockFile = ./Cargo.lock;
+        };
+        cargoToml = ./Cargo.toml;
+        buildInputs = [ ];
+        CARGO_BUILD_TARGET = "x86_64-unknown-linux-musl";
+      };
+      mingw = pkgsCross.mingw.rustPlatform.buildRustPackage {
+        pname = pname;
+        version = version;
+        src = ./.;
+        cargoLock = {
+          lockFile = ./Cargo.lock;
+        };
+        cargoToml = ./Cargo.toml;
+        buildInputs = [ ];
+        CARGO_BUILD_TARGET = "x86_64-pc-windows-gnu";
+      };
+    };
   });
 }
