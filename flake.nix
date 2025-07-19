@@ -31,5 +31,12 @@
         module = import ./packages/mariner;
       };
     };
+    templates = {
+      rust = {
+        path = ./templates/rust;
+        description = "Cross compiling rust flake";
+        welcomeText = "Rust flake created";
+      };
+    };
   };
 }

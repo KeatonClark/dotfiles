@@ -58,3 +58,21 @@ nix profile upgrade mariner
 - buffer (<space\>fb)
 - jumplist (<space\>fj)
 - marks (<space\>fm)
+
+# Templates
+## Rust
+flake template for cross compiling rust for windows and musl
+### Setup 
+```sh
+# flake init
+nix flake init -t github:KeatonClark/dotfiles#rust
+
+# devshell
+nix develop
+
+# cargo init
+cargo init
+# or
+cargo init --lib
+```
+
