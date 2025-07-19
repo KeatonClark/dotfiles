@@ -5,6 +5,7 @@
     ./lsp.nix
     ./git.nix
     ./cmp.nix
+    ./avante.nix
   ];
   plugins = {
     auto-save.enable = true;
