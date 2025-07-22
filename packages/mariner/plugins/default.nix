@@ -15,7 +15,9 @@
       settings.options.diagnostics = "nvim_lsp";
     };
     lualine.enable = true;
+    noice.enable = true;
   };
+  colorschemes.gruvbox.enable = true;
   extraPlugins = with pkgs.vimPlugins; [
     {
       plugin = neoscroll-nvim;
