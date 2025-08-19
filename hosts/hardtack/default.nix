@@ -1,11 +1,11 @@
-{ inputs, ... }:
+{ inputs, dotfiles-config, ... }:
 let
-  user = "kc";
-  fullName = "Keaton Clark";
-  timeZone = "America/Los_Angeles";
-  system = "x86_64-linux";
-  stateVersion = "25.11";
-  email = "root@keatonclark.dev";
+  user = dotfiles-config.user.user;
+  fullName = dotfiles-config.user.fullName;
+  timeZone = dotfiles-config.user.timeZone;
+  system = dotfiles-config.user.system;
+  stateVersion = dotfiles-config.user.stateVersion;
+  email = dotfiles-config.user.email;
 in inputs.nixpkgs.lib.nixosSystem {
   specialArgs = { 
     inherit inputs stateVersion;
