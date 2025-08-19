@@ -10,7 +10,6 @@
         inputs.self.packages.${pkgs.system}.mariner
         bat
         jq
-        fzf
         socat
         htop-vim
       ];
