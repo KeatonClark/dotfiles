@@ -16,12 +16,13 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dotfiles-config.url = "path:./templates/dotfiles-config";
   };
 
-  outputs = inputs@{ nixpkgs, utils, nixvim, ... }: {
+  outputs = inputs@{ nixpkgs, utils, nixvim, dotfiles-config, ... }: {
     # Define nixosConfigurations here as well
     nixosConfigurations = {
-      hardtack = import ./hosts/hardtack { inherit inputs; };
+      hardtack = import ./hosts/hardtack { inherit inputs dotfiles-config; };
     };
 
     # Use eachDefaultSystem only for system-dependent outputs
@@ -36,6 +37,11 @@
         path = ./templates/rust;
         description = "Cross compiling rust flake";
         welcomeText = "Rust flake created";
+      };
+      dotfiles-config = {
+        path = ./templates/dotfiles-config;
+        description = "configuration for these dotfiles";
+        welcomeText = "Don't forget to modify the values in flake.nix";
       };
     };
   };

@@ -4,8 +4,14 @@ Personal nix dotfiles containing system configuration, editor, etc...
 ## Hardtack (wsl)
 ### Usage
 ```sh
+# Create config
+mkdir -p ~/.config/dotfiles-config
+cd ~/.config/dotfiles-config
+nix flake init -t github.com:KeatonClark/dotfiles#dotfiles-config
+# Modify values in flake.nix
+
 # Installation
-nixos-rebuild switch --flake github:KeatonClark/dotfiles#hardtack
+nixos-rebuild switch --flake github:KeatonClark/dotfiles#hardtack --override-input dotfiles-config path:~/.config/dotfiles-config
 ```
 ### Features
 - tmux config

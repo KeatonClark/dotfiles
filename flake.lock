@@ -1,5 +1,19 @@
 {
   "nodes": {
+    "dotfiles-config": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "path": "./templates/dotfiles-config",
+        "type": "path"
+      },
+      "original": {
+        "path": "./templates/dotfiles-config",
+        "type": "path"
+      },
+      "parent": []
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -105,6 +119,20 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1755323907,
+        "narHash": "sha256-WujRF+1SX5f1tvU9n6LWU1E6gzTuwdj+Hk7Q4dpZpU0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b6b47963d86aca847fe9754627b1f20f5fd0181d",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1752480373,
         "narHash": "sha256-JHQbm+OcGp32wAsXTE/FLYGNpb+4GLi5oTvCxwSoBOA=",
         "owner": "nixos",
@@ -167,8 +195,9 @@
     },
     "root": {
       "inputs": {
+        "dotfiles-config": "dotfiles-config",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "utils": "utils",
         "wsl": "wsl"
