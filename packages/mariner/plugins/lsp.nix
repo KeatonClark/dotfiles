@@ -6,7 +6,10 @@
     lsp = {
       enable = true;
       servers = {
-        clangd.enable = true;
+        clangd = {
+          enable = true;
+          package = null;
+        };
         bashls.enable = true;
         cmake.enable = true;
         dockerls.enable = true;
