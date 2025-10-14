@@ -10,6 +10,7 @@
           enable = true;
           package = null;
         };
+        verible.enable = true;
         bashls.enable = true;
         cmake.enable = true;
         dockerls.enable = true;
