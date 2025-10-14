@@ -7,11 +7,20 @@
   keymaps = [
     {
       action = "<cmd>lua require('gitsigns').blame()<cr>";
-      key = "<leader>b";
+      key = "<leader>gbb";
       mode = ["n"];
       options = {
         silent = true;
-        desc = "Blame";
+        desc = "Blame Buffer";
+      };
+    }
+    {
+      action = "<cmd>lua require('gitsigns').blame_line()<cr>";
+      key = "<leader>gbl";
+      mode = ["n"];
+      options = {
+        silent = true;
+        desc = "Blame Line";
       };
     }
     {

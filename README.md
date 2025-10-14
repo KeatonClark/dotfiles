@@ -57,6 +57,8 @@ nix profile upgrade mariner
 - file add (<space\>gaf)
 - file reset (<space\>gar)
 - commit (<space\>gc)
+- blame line (<space\>gbl)
+- blame buffer (<space\>gbb)
 #### Searching
 - file (<space\>ff)
 - string (<space\>fs)
@@ -64,6 +66,12 @@ nix profile upgrade mariner
 - buffer (<space\>fb)
 - jumplist (<space\>fj)
 - marks (<space\>fm)
+### Lsp
+- rename (<space\>ln)
+- references (<space\>lr)
+- symbols (<space\>ls)
+- definition/declaration (<space\>ln)
+- swap source/header (<space\><tab\>)
 
 # Templates
 ## Rust
