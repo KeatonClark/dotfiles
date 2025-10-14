@@ -43,6 +43,10 @@
         description = "configuration for these dotfiles";
         welcomeText = "Don't forget to modify the values in flake.nix";
       };
+      verilog = {
+        path = ./templates/verilog;
+        description = "Verilog template with verilator sim";
+      };
     };
   };
 }
