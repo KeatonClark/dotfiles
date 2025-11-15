@@ -54,6 +54,9 @@
       users.${config.user} = {
         isNormalUser = true;
         group = "kc";
+        extraGroups = [
+          "wheel"
+        ];
         hashedPassword = config.hashedPassword;
       };
     };
