@@ -45,7 +45,11 @@
       "discord"
       "cuda-cudart"
     ];
-
+    users.users.${config.user} = {
+      isSystemUser = true;
+      group = "kc";
+    };
+    users.groups.${config.user} = {};
     system.stateVersion = config.stateVersion;
     home-manager.users.${config.user}.home.stateVersion = config.stateVersion;
     home-manager.users.root.home.stateVersion = config.stateVersion;
