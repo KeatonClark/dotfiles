@@ -6,6 +6,7 @@ let
   system = dotfiles-config.user.system;
   stateVersion = dotfiles-config.user.stateVersion;
   email = dotfiles-config.user.email;
+  hashedPassword = dotfiles-config.user.hashedPassword;
 in inputs.nixpkgs.lib.nixosSystem {
   specialArgs = { 
     inherit inputs stateVersion;
@@ -20,6 +21,7 @@ in inputs.nixpkgs.lib.nixosSystem {
       fullName = fullName;
       email = email;
       stateVersion = stateVersion;
+      hashedPassword = hashedPassword;
       nixpkgs.hostPlatform = system;
       ai.enable = true;
       wsl = {

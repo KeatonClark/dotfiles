@@ -8,6 +8,10 @@
       type = lib.types.str;
       description = "Primary user of the system";
     };
+    hashedPassword = lib.mkOption {
+      type = lib.types.str;
+      description = "Password built with mkpasswd for the user";
+    };
     fullName = lib.mkOption {
       type = lib.types.str;
       description = "Full name";
@@ -45,9 +49,13 @@
       "discord"
       "cuda-cudart"
     ];
-    users.users.${config.user} = {
-      isNormalUser = true;
-      group = "kc";
+    users = {
+      mutableUsers = false;
+      users.${config.user} = {
+        isNormalUser = true;
+        group = "kc";
+        hashedPassword = config.hashedPassword;
+      };
     };
     users.groups.${config.user} = {};
     system.stateVersion = config.stateVersion;
