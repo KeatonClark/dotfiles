@@ -7,13 +7,12 @@ let
   stateVersion = dotfiles-config.user.stateVersion;
   email = dotfiles-config.user.email;
 in inputs.nixpkgs.lib.nixosSystem {
-  specialArgs = { 
+  specialArgs = {
     inherit inputs stateVersion;
   };
   modules = [
     ../../modules/common
     inputs.home-manager.nixosModules.home-manager
-    inputs.wsl.nixosModules.wsl
     {
       user = user;
       timeZone = timeZone;
@@ -21,15 +20,7 @@ in inputs.nixpkgs.lib.nixosSystem {
       email = email;
       stateVersion = stateVersion;
       nixpkgs.hostPlatform = system;
-      ai.enable = true;
-      wsl = {
-        useWindowsDriver = true;
-        enable = true;
-        usbip.enable = true;
-        wslConf.automount.root = "/mnt";
-        defaultUser = user;
-        wslConf.network.generateResolvConf = true;
-      };
+      gui.enable = true;
     }
   ];
 }

@@ -11,7 +11,6 @@
         bat
         jq
         socat
-        htop-vim
       ];
     };
   };

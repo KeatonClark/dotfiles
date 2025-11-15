@@ -1,10 +1,4 @@
 { config, lib, pkgs, ... }: {
-
-  imports = [
-    ../shell
-    ../ai
-  ];
-
   options = {
     stateVersion = lib.mkOption {
       type = lib.types.str;
@@ -30,6 +24,10 @@
       default = false;
       description = "Enable Graphics";
     };
+    ai.enable = lib.mkEnableOption {
+      default = false;
+      description = "Enable ollama and locally hosted models";
+    };
   };
 
   config = {
@@ -53,4 +51,9 @@
     home-manager.users.root.home.stateVersion = config.stateVersion;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
   };
+
+  imports = [
+    ../shell
+    #../ai
+  ];
 }
