@@ -46,7 +46,7 @@
       "cuda-cudart"
     ];
     users.users.${config.user} = {
-      isSystemUser = true;
+      isNormalUser = true;
       group = "kc";
     };
     users.groups.${config.user} = {};
