@@ -13,6 +13,7 @@ in inputs.nixpkgs.lib.nixosSystem {
   modules = [
     ../../modules/common
     inputs.home-manager.nixosModules.home-manager
+    ./hardware.nix
     {
       user = user;
       timeZone = timeZone;
