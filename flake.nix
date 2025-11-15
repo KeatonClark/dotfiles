@@ -23,6 +23,7 @@
     # Define nixosConfigurations here as well
     nixosConfigurations = {
       hardtack = import ./hosts/hardtack { inherit inputs dotfiles-config; };
+      helm = import ./hosts/helm { inherit inputs dotfiles-config; };
     };
 
     # Use eachDefaultSystem only for system-dependent outputs
