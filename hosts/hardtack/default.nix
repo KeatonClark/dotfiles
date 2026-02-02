@@ -1,6 +1,7 @@
 { inputs, dotfiles-config, ... }:
 let
   user = dotfiles-config.user.user;
+  group = dotfiles-config.user.group;
   fullName = dotfiles-config.user.fullName;
   timeZone = dotfiles-config.user.timeZone;
   system = dotfiles-config.user.system;
@@ -13,10 +14,12 @@ in inputs.nixpkgs.lib.nixosSystem {
   };
   modules = [
     ../../modules/common
+    ../../modules/graphical
     inputs.home-manager.nixosModules.home-manager
     inputs.wsl.nixosModules.wsl
     {
       user = user;
+      group = group;
       timeZone = timeZone;
       fullName = fullName;
       email = email;

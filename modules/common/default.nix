@@ -53,7 +53,7 @@
       mutableUsers = false;
       users.${config.user} = {
         isNormalUser = true;
-        group = "kc";
+        group = config.group;
         extraGroups = [
           "wheel"
         ];
@@ -69,6 +69,5 @@
 
   imports = [
     ../shell
-    #../ai
   ];
 }

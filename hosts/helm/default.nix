@@ -1,6 +1,7 @@
 { inputs, dotfiles-config, ... }:
 let
   user = dotfiles-config.user.user;
+  group = dotfiles-config.user.group;
   fullName = dotfiles-config.user.fullName;
   timeZone = dotfiles-config.user.timeZone;
   system = dotfiles-config.user.system;
@@ -17,6 +18,7 @@ in inputs.nixpkgs.lib.nixosSystem {
     ./hardware.nix
     {
       user = user;
+      group = group;
       timeZone = timeZone;
       fullName = fullName;
       email = email;

@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./kitty.nix
-    ./hyprland.nix
+    ./alacritty.nix
+    ./i3.nix
   ];
 }

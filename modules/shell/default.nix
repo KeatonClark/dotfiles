@@ -3,6 +3,7 @@
   imports = [
     ./zsh.nix
     ./tmux.nix
+    ./git.nix
   ];
   config = {
     home-manager.users.${config.user} = {
