@@ -8,6 +8,10 @@
       type = lib.types.str;
       description = "Primary user of the system";
     };
+    group = lib.mkOption {
+      type = lib.types.str;
+      description = "Primary user's group";
+    };
     hashedPassword = lib.mkOption {
       type = lib.types.str;
       description = "Password built with mkpasswd for the user";
