@@ -7,11 +7,14 @@
       };
       git = {
         enable = true;
-        userEmail = config.email;
-        userName = config.fullName;
-        difftastic = {
-          enable = true;
+        settings.user = {
+          email = config.email;
+          name = config.fullName;
         };
+      };
+      difftastic = {
+        git.enable = true;
+        enable = true;
       };
     };
   };

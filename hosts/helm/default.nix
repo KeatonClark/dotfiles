@@ -14,6 +14,7 @@ in inputs.nixpkgs.lib.nixosSystem {
   };
   modules = [
     ../../modules/common
+    ../../modules/graphical
     inputs.home-manager.nixosModules.home-manager
     ./hardware.nix
     {

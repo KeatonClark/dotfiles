@@ -8,6 +8,7 @@
       theme = "gruvbox_dark";
       settings = {
         font = {
+          size = 9.0;
           normal = {
             family = "FiraCode Nerd Font Mono";
             style = "Regular";

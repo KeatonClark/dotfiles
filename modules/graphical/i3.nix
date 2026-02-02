@@ -24,7 +24,7 @@
       plugins = with pkgs; [
         rofi-calc
       ];
-      font = "FiraCode Nerd Font Mono 14"; 
+      font = "FiraCode Nerd Font Mono 9"; 
       modes = [
         "drun"
         "run"
