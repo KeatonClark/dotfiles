@@ -74,6 +74,8 @@
           "${mod}+Shift+l" = "move right";
                    
           "${mod}+Shift+q" = "exec i3-msg exit";
+
+          "${mod}+t" = "layout toggle splith tabbed";
         } // lib.listToAttrs (lib.genList (n: {
             name = "${mod}+${toString n}";
             value = "workspace number ${toString n}";
@@ -99,8 +101,8 @@
           focused = {
             border = blue;
             background = blue;
-            text = blue;
-            indicator = blue;
+            text = darkgray;
+            indicator = darkgray;
             childBorder = blue;
           };
           focusedInactive = {
