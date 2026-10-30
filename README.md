@@ -7,7 +7,7 @@ Personal nix dotfiles containing system configuration, editor, etc...
 # Create config
 mkdir -p ~/.config/dotfiles-config
 cd ~/.config/dotfiles-config
-nix flake init -t github.com:KeatonClark/dotfiles#dotfiles-config
+nix flake init -t github:KeatonClark/dotfiles#dotfiles-config
 # Modify values in flake.nix
 
 # Installation

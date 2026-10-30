@@ -1,10 +1,4 @@
 { config, lib, pkgs, ... }: {
-
-  imports = [
-    ../shell
-    ../ai
-  ];
-
   options = {
     stateVersion = lib.mkOption {
       type = lib.types.str;
@@ -13,6 +7,14 @@
     user = lib.mkOption {
       type = lib.types.str;
       description = "Primary user of the system";
+    };
+    group = lib.mkOption {
+      type = lib.types.str;
+      description = "Primary user's group";
+    };
+    hashedPassword = lib.mkOption {
+      type = lib.types.str;
+      description = "Password built with mkpasswd for the user";
     };
     fullName = lib.mkOption {
       type = lib.types.str;
@@ -29,6 +31,10 @@
     gui.enable = lib.mkEnableOption {
       default = false;
       description = "Enable Graphics";
+    };
+    ai.enable = lib.mkEnableOption {
+      default = false;
+      description = "Enable ollama and locally hosted models";
     };
   };
 
@@ -47,10 +53,25 @@
       "discord"
       "cuda-cudart"
     ];
-
+    users = {
+      mutableUsers = false;
+      users.${config.user} = {
+        isNormalUser = true;
+        group = config.group;
+        extraGroups = [
+          "wheel"
+        ];
+        hashedPassword = config.hashedPassword;
+      };
+    };
+    users.groups.${config.user} = {};
     system.stateVersion = config.stateVersion;
     home-manager.users.${config.user}.home.stateVersion = config.stateVersion;
     home-manager.users.root.home.stateVersion = config.stateVersion;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
   };
+
+  imports = [
+    ../shell
+  ];
 }
