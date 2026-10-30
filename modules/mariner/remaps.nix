@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   plugins = {
     which-key = {
       enable = true;
@@ -35,7 +34,16 @@
             group = "Help!";
           }
         ];
-        triggers_no_wait = ["" "'" "g" "g'" "\"" "<c-r>" "z=" "<leader>"];
+        triggers_no_wait = [
+          ""
+          "'"
+          "g"
+          "g'"
+          "\""
+          "<c-r>"
+          "z="
+          "<leader>"
+        ];
       };
     };
   };
@@ -43,7 +51,7 @@
     {
       action = "<cmd>ClangdSwitchSourceHeader<cr>";
       key = "<leader><Tab>";
-      mode = ["n"];
+      mode = [ "n" ];
       options = {
         silent = true;
         desc = "Source/Header";
@@ -52,7 +60,7 @@
     {
       action = "<cmd>bn<cr>";
       key = "<Tab>";
-      mode = ["n"];
+      mode = [ "n" ];
       options = {
         silent = true;
         desc = "Next Buffer";
@@ -61,7 +69,7 @@
     {
       action = "<cmd>bp<cr>";
       key = "<S-Tab>";
-      mode = ["n"];
+      mode = [ "n" ];
       options = {
         silent = true;
         desc = "Prev Buffer";

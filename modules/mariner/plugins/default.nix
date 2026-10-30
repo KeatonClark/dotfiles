@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   imports = [
-    ./telescope.nix   
+    ./telescope.nix
     ./lsp.nix
     ./git.nix
     ./cmp.nix

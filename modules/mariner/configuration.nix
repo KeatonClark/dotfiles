@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   config = {
     viAlias = true;
     opts = {
@@ -11,7 +10,10 @@
     };
     autoCmd = [
       {
-        event = [ "CursorHold" "CursorHoldI" ];
+        event = [
+          "CursorHold"
+          "CursorHoldI"
+        ];
         pattern = [ "*" ];
         command = "lua vim.diagnostic.open_float(nil, {focus=false})";
       }

@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   plugins = {
     treesitter.enable = true;
     treesitter-context.enable = true;
@@ -31,7 +30,7 @@
     {
       action = "<cmd>lua vim.lsp.buf.rename()<cr>";
       key = "<leader>ln";
-      mode = ["n"];
+      mode = [ "n" ];
       options = {
         silent = true;
         desc = "reName";
