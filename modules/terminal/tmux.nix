@@ -9,7 +9,6 @@
         enable = true;
         baseIndex = 1;
         keyMode = "vi";
-        newSession = true;
         disableConfirmationPrompt = true;
         customPaneNavigationAndResize = true;
         tmuxinator.enable = true;
