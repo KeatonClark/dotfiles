@@ -2,22 +2,6 @@ Personal nix dotfiles containing system configuration, editor, etc...
 
 # NixOS Configurations
 ## Hardtack (wsl)
-### Usage
-```sh
-# Create config
-mkdir -p ~/.config/dotfiles-config
-cd ~/.config/dotfiles-config
-nix flake init -t github:KeatonClark/dotfiles#dotfiles-config
-# Modify values in flake.nix
-
-# Installation
-nixos-rebuild switch --flake github:KeatonClark/dotfiles#hardtack --override-input dotfiles-config path:~/.config/dotfiles-config
-```
-### Features
-- tmux config
-- mariner (neovim)
-- ollama service with nvidia pass through
-- zsh config
 
 # Packages
 ## Mariner (neovim)
@@ -72,21 +56,3 @@ nix profile upgrade mariner
 - symbols (<space\>ls)
 - definition/declaration (<space\>ln)
 - swap source/header (<space\><tab\>)
-
-# Templates
-## Rust
-flake template for cross compiling rust for windows and musl
-### Setup 
-```sh
-# flake init
-nix flake init -t github:KeatonClark/dotfiles#rust
-
-# devshell
-nix develop
-
-# cargo init
-cargo init
-# or
-cargo init --lib
-```
-

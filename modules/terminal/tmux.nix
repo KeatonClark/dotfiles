@@ -1,10 +1,14 @@
-{ config, pkgs, ... }: {
-  home-manager.users.${config.user} = {
-    programs = {
-      tmux = {
+{
+  ...
+}:
+{
+  flake.modules.homeManager.tmux =
+    { ... }:
+    {
+      programs.tmux = {
         enable = true;
+        baseIndex = 1;
         keyMode = "vi";
-        newSession = true;
         disableConfirmationPrompt = true;
         customPaneNavigationAndResize = true;
         tmuxinator.enable = true;
@@ -29,13 +33,5 @@
           bind-key -n 'C-Right' resize-pane -R 1
         '';
       };
-      fzf = {
-        enable = true;
-        enableZshIntegration = true;
-        tmux = {
-          enableShellIntegration = true;
-        };
-      };
     };
-  };
 }
