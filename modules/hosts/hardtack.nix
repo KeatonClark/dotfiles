@@ -14,7 +14,11 @@
       modules = with inputs.self; [
         inputs.wsl.nixosModules.wsl
         inputs.home-manager.nixosModules.home-manager
-        (factory.dev { username = "kc"; git_name = "Keaton Clark"; git_email = "keaton.clark@horiba.com"; })
+        (factory.dev {
+          username = "kc";
+          git_name = "Keaton Clark";
+          git_email = "keaton.clark@horiba.com";
+        })
         (factory.admin { username = "kc"; })
         ({ ... }: {
           config = {
@@ -30,20 +34,12 @@
               "nix-command"
               "flakes"
             ];
-            virtualisation.vmVariant = {
-              virtualisation = {
-                memorySize = 8192;
-                cores = 4;
+            wsl = {
+              enable = true;
+              usbip = {
+                enable = true;
               };
             };
-            /*
-              wsl = {
-                enable = true;
-                usbip = {
-                  enable = true;
-                };
-              };
-            */
           };
         })
       ];

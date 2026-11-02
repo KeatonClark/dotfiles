@@ -25,7 +25,10 @@
           imports = with inputs.self.modules.homeManager; [
             tmux
             zsh
-            (inputs.self.factory.git { name = git_name; email = git_email; })
+            (inputs.self.factory.git {
+              name = git_name;
+              email = git_email;
+            })
             mariner
           ];
         };
