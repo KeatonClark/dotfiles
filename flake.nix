@@ -12,14 +12,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim.url = "github:nix-community/nixvim";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
   };
 
-  outputs = inputs: {
-    packages = builtins.mapAttrs (system: pkgs: {
-      mariner = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
-        module = import ./modules/mariner;
-      };
-    }) inputs.nixpkgs.legacyPackages;
-    formatter = builtins.mapAttrs (system: pkgs: pkgs.nixfmt-tree) inputs.nixpkgs.legacyPackages;
-  };
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.flake-parts.flakeModules.modules
+        (inputs.import-tree [ ./modules ])
+      ];
+    };
 }
